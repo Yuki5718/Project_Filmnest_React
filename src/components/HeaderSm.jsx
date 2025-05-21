@@ -12,7 +12,7 @@ export default function HeaderSm() {
   const profile = useSelector((state) => state.user.profile);
   const id = useSelector((state) => state.user.profile.userId);
   const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
-  const categoryData = ["喜劇", "愛情", "恐怖", "懸疑", "科幻", "紀錄片", "動畫", "實驗電影"];
+  const categoryData = [{comedyIcon:"喜劇"}, {romanceIcon:"愛情"}, {horrorIcon:"恐怖"}, {suspendIcon:"懸疑"}, {sciFiIcon:"科幻"}, {documentalIcon:"紀錄片"}, {animeIcon:"動畫"}, {experimentalFilmIcon:"實驗電影"}];
   const [isExpand, setIsExpand] = useState({ category: false });
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -101,15 +101,17 @@ export default function HeaderSm() {
             <li>
               <Link className="dropdown-item py-2 px-5" to="/projectExplore" onClick={() => dispatch(setCategory("all"))} onMouseEnter={(e) => (e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)")} onMouseLeave={(e) => (e.target.style.backgroundColor = "transparent")}>
                 <img src="allProjectsIcon.png" alt="allProjectsIcon" className="me-2" style={{ width: "24px" }} />
-                allProjectsIcon
+                全部專案
               </Link>
             </li>
             {categoryData.map((item, index) => {
+              const key = Object.keys(item)[0]
+              const value = Object.values(item)[0]
               return (
                 <li key={index}>
-                  <Link className="dropdown-item py-2 px-5" to="/projectExplore" onClick={() => dispatch(setCategory(item))} onMouseEnter={(e) => (e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)")} onMouseLeave={(e) => (e.target.style.backgroundColor = "transparent")}>
-                    <img src={`${item}.png`} alt={item} className="me-2" style={{ width: "24px" }} />
-                    {item}
+                  <Link className="dropdown-item py-2 px-5" to="/projectExplore" onClick={() => dispatch(setCategory(value))} onMouseEnter={(e) => (e.target.style.backgroundColor = "rgba(255, 255, 255, 0.3)")} onMouseLeave={(e) => (e.target.style.backgroundColor = "transparent")}>
+                    <img src={`${key}.png`} alt={value} className="me-2" style={{ width: "24px" }} />
+                    {value}
                   </Link>
                 </li>
               );

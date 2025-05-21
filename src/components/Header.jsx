@@ -13,7 +13,7 @@ export default function Header() {
   const id = useSelector((state) => state.user.profile.userId);
   const searchValue = useSelector((state) => state.search.value);
   const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
-  const categoryData = ["喜劇", "愛情", "恐怖", "懸疑", "科幻", "紀錄片", "動畫", "實驗電影"];
+  const categoryData = [{comedyIcon:"喜劇"}, {romanceIcon:"愛情"}, {horrorIcon:"恐怖"}, {suspendIcon:"懸疑"}, {sciFiIcon:"科幻"}, {documentalIcon:"紀錄片"}, {animeIcon:"動畫"}, {experimentalFilmIcon:"實驗電影"}];
   const dispatch = useDispatch();
   const deskNavbarRef = useRef(null);
   const mobileNavbarRef = useRef(null);
@@ -150,15 +150,17 @@ export default function Header() {
                 <li>
                   <Link className="btn btn-outline-secondary btn-base text-white border-0 w-100 d-flex align-items-center" to="/projectExplore" onClick={() => dispatch(setCategory("all"))}>
                     <img src="allProjectsIcon.png" alt="allProjectsIcon" className="me-2" style={{ width: "24px" }} />
-                    allProjectsIcon
+                    全部專案
                   </Link>
                 </li>
                 {categoryData.map((item, index) => {
+                  const key = Object.keys(item)[0]
+                  const value = Object.values(item)[0]
                   return (
                     <li key={index}>
-                      <Link className="btn btn-outline-secondary btn-base text-white border-0 w-100 d-flex align-items-center" to="/projectExplore" onClick={() => dispatch(setCategory(item))}>
-                        <img src={`${item}.png`} alt={item} className="me-2" style={{ width: "24px" }} />
-                        {item}
+                      <Link className="btn btn-outline-secondary btn-base text-white border-0 w-100 d-flex align-items-center" to="/projectExplore" onClick={() => dispatch(setCategory(value))}>
+                        <img src={`${key}.png`} alt={value} className="me-2" style={{ width: "24px" }} />
+                        {value}
                       </Link>
                     </li>
                   );
