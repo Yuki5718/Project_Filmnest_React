@@ -29,6 +29,7 @@ export default function Card({ projects, isSwiper, isDelete, getData }) {
   return projects?.map((project) => {
     const endDate = new Date(project.endAt); // 設定結束日期
     const nowDate = new Date(); // 取得今天的日期
+    
 
     // 計算剩餘天數
     const time = endDate - nowDate; // 取得毫秒差
