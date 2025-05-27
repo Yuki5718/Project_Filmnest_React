@@ -151,7 +151,7 @@ export default function FeedbackOption() {
       showCancelButton: true,
       confirmButtonText: "確認",
       cancelButtonText: "取消",
-      html: `<hr><p class="fs-7">${optionData.projectTitle}</p><p class="fs-4">【 ${optionData.optionTitle}】</p><p class="fs-7">總金額：$${(prices.originPrice + prices.bonus).toLocaleString()}</p>`,
+      html: `<hr><p class="fs-7">${optionData.projectTitle}</p><p class="fs-4">【 ${optionData.title}】</p><p class="fs-7">總金額：$${(prices.originPrice + prices.bonus).toLocaleString()}</p>`,
     }).then((result) => {
       if (result.value) {
         createOrder();
