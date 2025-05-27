@@ -46,7 +46,7 @@
 <br>
 
 ## Live demo
-👉 [https://s851218.github.io/Project_Filmnest_React/](https://s851218.github.io/Project_Filmnest_React/)
+👉 [https://yuki5718.github.io/Project_Filmnest_React/](https://yuki5718.github.io/Project_Filmnest_React/)
 
 <br>
 
@@ -187,7 +187,7 @@
   1. Clone 本專案至本地端
 
   ```bash
-  $ git clone "https://github.com/s851218/Project_Filmnest_React.git"
+  $ git clone "https://github.com/Yuki5718/Project_Filmnest_React.git"
   ```
 
   2. 安裝所需套件
